@@ -1,0 +1,341 @@
+[index.html](https://github.com/user-attachments/files/25016922/index.html)
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lista de Presentes</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f7f2ea; --ink:#232323; --muted:#5b5b5b;
+      --sage:#8fa79a; --gold:#c9b37e;
+      --panel:rgba(255,255,255,.70); --line:rgba(35,35,35,.12);
+      --shadow:0 18px 60px rgba(20,20,20,.10);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; min-height:100vh; padding:28px 16px 48px;
+      font-family:Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 700px at 18% 8%, rgba(143,167,154,.16), transparent 60%),
+        radial-gradient(900px 600px at 90% 18%, rgba(201,179,126,.18), transparent 55%),
+        radial-gradient(1100px 700px at 70% 100%, rgba(143,167,154,.12), transparent 60%),
+        var(--bg);
+    }
+    .wrap{max-width:1040px;margin:0 auto}
+    .frame{
+      position:relative; border-radius:24px; padding:26px;
+      background:linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.56));
+      box-shadow:var(--shadow); overflow:hidden; isolation:isolate;
+    }
+    .frame::before{
+      content:""; position:absolute; inset:10px; border-radius:18px;
+      border:1px solid rgba(201,179,126,.62); pointer-events:none; z-index:1;
+    }
+    .frame::after{
+      content:""; position:absolute; inset:22px; border-radius:14px;
+      border:1px solid rgba(35,35,35,.10); pointer-events:none; z-index:1;
+    }
+    .floral{position:absolute;width:240px;height:240px;opacity:.90;pointer-events:none;z-index:0}
+    .tl{top:-52px;left:-56px;transform:rotate(-8deg)}
+    .tr{top:-58px;right:-58px;transform:rotate(18deg) scaleX(-1)}
+    .bl{bottom:-64px;left:-62px;transform:rotate(8deg) scaleY(-1)}
+    .br{bottom:-68px;right:-68px;transform:rotate(-14deg) scale(-1)}
+
+    header{position:relative;z-index:2;text-align:center;padding:18px 18px 10px}
+    h1{
+      margin:8px 0 0;
+      font-family:"Cormorant Garamond", serif;
+      font-size:clamp(30px, 4vw, 48px);
+      letter-spacing:.12em; font-weight:700; text-transform:uppercase;
+    }
+    .orn{
+      display:inline-flex; align-items:center; gap:12px;
+      color:var(--gold); opacity:.98; margin:12px auto 0; font-size:14px;
+      user-select:none;
+    }
+    .orn span{display:inline-block;width:92px;height:1px;background:rgba(201,179,126,.85)}
+
+    .grid{
+      position:relative; z-index:2;
+      display:grid; grid-template-columns:1fr; gap:14px;
+      padding:18px 6px 4px;
+    }
+    @media (min-width: 900px){ .grid{grid-template-columns:1fr 1fr; gap:16px;} }
+
+    section{
+      background:var(--panel);
+      border:1px solid rgba(255,255,255,.38);
+      border-radius:16px;
+      padding:14px 14px 12px;
+      backdrop-filter: blur(7px);
+    }
+    h2{margin:2px 0 10px;font-size:13px;letter-spacing:.10em;text-transform:uppercase;font-weight:600}
+    .divider{height:1px;background:var(--line);margin:8px 0 10px}
+    ul{margin:0;padding-left:18px;line-height:1.55;font-size:14px}
+    li{margin:6px 0}
+
+    footer{
+      position:relative; z-index:2; text-align:center;
+      color:rgba(35,35,35,.58); font-size:12px; padding:14px 6px 2px;
+    }
+    .chip{
+      display:inline-block; padding:8px 12px; border-radius:999px;
+      border:1px solid rgba(201,179,126,.35);
+      background:rgba(255,255,255,.45);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <main class="frame" role="main" aria-label="Lista de presentes">
+
+      <!-- Floral SVG (4 quinas) -->
+      <svg class="floral tl" viewBox="0 0 200 200" aria-hidden="true">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#8FA79A" stop-opacity=".55"/>
+            <stop offset="1" stop-color="#C9B37E" stop-opacity=".45"/>
+          </linearGradient>
+        </defs>
+        <g fill="none" stroke="url(#g1)" stroke-width="2" stroke-linecap="round">
+          <path d="M34 156c22-42 54-70 100-88" />
+          <path d="M46 166c18-34 44-58 84-74" />
+          <path d="M62 160c8-20 22-36 44-50" />
+        </g>
+        <g>
+          <circle cx="138" cy="62" r="14" fill="#ffffff" fill-opacity=".66"/>
+          <circle cx="120" cy="78" r="10" fill="#ffffff" fill-opacity=".56"/>
+          <circle cx="156" cy="80" r="9"  fill="#ffffff" fill-opacity=".52"/>
+          <circle cx="96"  cy="104" r="7"  fill="#ffffff" fill-opacity=".48"/>
+          <circle cx="78"  cy="122" r="5"  fill="#ffffff" fill-opacity=".40"/>
+        </g>
+      </svg>
+
+      <svg class="floral tr" viewBox="0 0 200 200" aria-hidden="true">
+        <defs>
+          <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#8FA79A" stop-opacity=".55"/>
+            <stop offset="1" stop-color="#C9B37E" stop-opacity=".45"/>
+          </linearGradient>
+        </defs>
+        <g fill="none" stroke="url(#g2)" stroke-width="2" stroke-linecap="round">
+          <path d="M34 156c22-42 54-70 100-88" />
+          <path d="M46 166c18-34 44-58 84-74" />
+          <path d="M62 160c8-20 22-36 44-50" />
+        </g>
+        <g>
+          <circle cx="138" cy="62" r="14" fill="#ffffff" fill-opacity=".66"/>
+          <circle cx="120" cy="78" r="10" fill="#ffffff" fill-opacity=".56"/>
+          <circle cx="156" cy="80" r="9"  fill="#ffffff" fill-opacity=".52"/>
+          <circle cx="96"  cy="104" r="7"  fill="#ffffff" fill-opacity=".48"/>
+          <circle cx="78"  cy="122" r="5"  fill="#ffffff" fill-opacity=".40"/>
+        </g>
+      </svg>
+
+      <svg class="floral bl" viewBox="0 0 200 200" aria-hidden="true">
+        <defs>
+          <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#8FA79A" stop-opacity=".55"/>
+            <stop offset="1" stop-color="#C9B37E" stop-opacity=".45"/>
+          </linearGradient>
+        </defs>
+        <g fill="none" stroke="url(#g3)" stroke-width="2" stroke-linecap="round">
+          <path d="M34 156c22-42 54-70 100-88" />
+          <path d="M46 166c18-34 44-58 84-74" />
+          <path d="M62 160c8-20 22-36 44-50" />
+        </g>
+        <g>
+          <circle cx="138" cy="62" r="14" fill="#ffffff" fill-opacity=".66"/>
+          <circle cx="120" cy="78" r="10" fill="#ffffff" fill-opacity=".56"/>
+          <circle cx="156" cy="80" r="9"  fill="#ffffff" fill-opacity=".52"/>
+          <circle cx="96"  cy="104" r="7"  fill="#ffffff" fill-opacity=".48"/>
+          <circle cx="78"  cy="122" r="5"  fill="#ffffff" fill-opacity=".40"/>
+        </g>
+      </svg>
+
+      <svg class="floral br" viewBox="0 0 200 200" aria-hidden="true">
+        <defs>
+          <linearGradient id="g4" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#8FA79A" stop-opacity=".55"/>
+            <stop offset="1" stop-color="#C9B37E" stop-opacity=".45"/>
+          </linearGradient>
+        </defs>
+        <g fill="none" stroke="url(#g4)" stroke-width="2" stroke-linecap="round">
+          <path d="M34 156c22-42 54-70 100-88" />
+          <path d="M46 166c18-34 44-58 84-74" />
+          <path d="M62 160c8-20 22-36 44-50" />
+        </g>
+        <g>
+          <circle cx="138" cy="62" r="14" fill="#ffffff" fill-opacity=".66"/>
+          <circle cx="120" cy="78" r="10" fill="#ffffff" fill-opacity=".56"/>
+          <circle cx="156" cy="80" r="9"  fill="#ffffff" fill-opacity=".52"/>
+          <circle cx="96"  cy="104" r="7"  fill="#ffffff" fill-opacity=".48"/>
+          <circle cx="78"  cy="122" r="5"  fill="#ffffff" fill-opacity=".40"/>
+        </g>
+      </svg>
+
+      <!-- Cabe�alho apenas com t�tulo -->
+      <header>
+        <h1>LISTA DE PRESENTES</h1>
+        <div class="orn"><span></span>?<span></span></div>
+      </header>
+
+      <div class="grid">
+        <section>
+          <h2>COZINHA (principais)</h2>
+          <div class="divider"></div>
+          <ul>
+            <li>Conjunto de panelas antiaderentes</li>
+            <li>Jogo de facas profissionais</li>
+            <li>Jogo de pratos, copos e talheres</li>
+            <li>Conjunto de x�caras e canecas</li>
+            <li>Conjunto de potes herm�ticos para mantimentos</li>
+            <li>T�bua de corte de bambu</li>
+            <li>Conjunto de utens�lios de silicone</li>
+            <li>Panela de press�o (normal ou el�trica)</li>
+            <li>Assadeiras e formas diversas</li>
+            <li>Escorredor de lou�a</li>
+            <li>Pano de prato e avental personalizados</li>
+            <li>Lixeira de cozinha</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>ELETROS (cozinha)</h2>
+          <div class="divider"></div>
+          <ul>
+            <li>Cafeteira el�trica ou prensa francesa</li>
+            <li>Torradeira ou sanduicheira</li>
+            <li>Liquidificador ou mixer</li>
+            <li>Air fryer</li>
+            <li>Batedeira</li>
+            <li>Micro-ondas</li>
+            <li>Pipoqueira</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>SALA DE ESTAR</h2>
+          <div class="divider"></div>
+          <ul>
+            <li>Almofadas decorativas</li>
+            <li>Manta para sof�</li>
+            <li>Porta-retratos e quadros decorativos</li>
+            <li>Vaso com plantas (naturais ou artificiais)</li>
+            <li>Lumin�ria de mesa ou de ch�o</li>
+            <li>Tapete aconchegante</li>
+            <li>Bandeja decorativa para centro de mesa</li>
+            <li>Organizador de fios/cabos</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>QUARTO</h2>
+          <div class="divider"></div>
+          <ul>
+            <li>Jogo de cama completo</li>
+            <li>Travesseiros de boa qualidade</li>
+            <li>Travesseiro extra</li>
+            <li>Manta/cobertor extra ou edredom</li>
+            <li>Abajur ou lumin�ria de cabeceira</li>
+            <li>Organizador de gavetas</li>
+            <li>Cabides de madeira ou veludo</li>
+            <li>Caixa organizadora para acess�rios</li>
+            <li>Protetor de colch�o</li>
+            <li>Jogo de fronhas extra</li>
+            <li>Cortina/persiana</li>
+            <li>Organizador para sapatos</li>
+            <li>Organizador para roupas de cama</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>BANHEIRO</h2>
+          <div class="divider"></div>
+          <ul>
+            <li>Jogo de toalhas (banho e rosto)</li>
+            <li>Tapete antiderrapante</li>
+            <li>Tapete de sa�da do box</li>
+            <li>Kit saboneteira, porta-escovas e dispenser</li>
+            <li>Cesto de roupa suja</li>
+            <li>Espelho decorativo</li>
+            <li>Aromatizador de ambiente</li>
+            <li>Toalheiro (parede ou ch�o)</li>
+            <li>Lixeira pequena para banheiro</li>
+            <li>Porta-papel higi�nico</li>
+            <li>Gancheiros/porta-toalhas extra</li>
+            <li>Cortina de box + ganchos</li>
+            <li>Toalhas de visita (kit)</li>
+            <li>Organizador para box (shampoo/sabonete)</li>
+            <li>Escova sanit�ria</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>LAVANDERIA E LIMPEZA</h2>
+          <div class="divider"></div>
+          <ul>
+            <li>Balde e bacia multiuso</li>
+            <li>Vassoura, rodo e p�</li>
+            <li>Ferro de passar roupa</li>
+            <li>T�bua de passar + capa</li>
+            <li>Varal retr�til ou dobr�vel</li>
+            <li>Cesto organizador (produtos de limpeza)</li>
+            <li>Kit de panos multiuso e esponjas</li>
+            <li>Mop / rodo spray</li>
+            <li>Aspirador port�til</li>
+            <li>Balde com espremedor</li>
+            <li>Prendedores de roupa</li>
+            <li>Cabides extras</li>
+            <li>Caixas/cestos organizadores extras</li>
+            <li>Ganchos adesivos</li>
+            <li>Organizador de pia + dispensers</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>�REA EXTERNA</h2>
+          <div class="divider"></div>
+          <ul>
+            <li>Mesa e cadeiras para varanda</li>
+            <li>Churrasqueira port�til</li>
+            <li>Kit de jardinagem</li>
+            <li>Luzes decorativas externas</li>
+            <li>Suporte para plantas suspensas</li>
+          </ul>
+        </section>
+
+        <section style="grid-column: 1 / -1;">
+          <h2>EXTRAS</h2>
+          <div class="divider"></div>
+          <ul>
+            <li>Quadro de recados / mural magn�tico</li>
+            <li>Rel�gio de parede</li>
+            <li>Caixa de ferramentas b�sica</li>
+            <li>Extens�es e adaptadores de tomada</li>
+            <li>Filtro de linha/protetor contra surtos</li>
+            <li>Kit de primeiros socorros dom�stico</li>
+            <li>Livro de receitas ou di�rio da casa nova</li>
+            <li>Vale-presente (loja de decora��o)</li>
+            <li>Kit de l�mpadas LED</li>
+            <li>Lanterna</li>
+            <li>Kit de chaves (fenda/philips/allen)</li>
+          </ul>
+        </section>
+      </div>
+
+      <footer>
+        <span class="chip">Obrigada por fazer parte deste momento.</span>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
